@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rock'N Burguer — hambúrgueres artesanais com pão brioche e o sabor no último volume.">
+  <title>🍔 Rock'N Burguer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Rock'N Burguer — página inicial">🍔 Rock'N Burguer</a>
+
+      <nav aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <a class="social-link" href="https://www.instagram.com/rocknburguer" target="_blank" rel="noopener noreferrer" aria-label="Instagram Rock'N Burguer">
+        <span class="social-icon">📷</span>
+        Rock'N Burguer
+      </a>
+
+      <button type="button" class="cart-icon" aria-label="Abrir carrinho">🛒</button>
+    </div>
+  </header>
+
+  <!-- ===== PAINEL DO CARRINHO ===== -->
+  <div class="cart-panel" id="cart-panel" aria-hidden="true">
+    <div class="cart-panel-inner" role="dialog" aria-modal="true" aria-labelledby="cart-panel-title">
+      <header class="cart-panel-header">
+        <h2 id="cart-panel-title">Carrinho</h2>
+        <button type="button" class="cart-close" aria-label="Fechar carrinho">×</button>
+      </header>
+
+      <div class="cart-panel-body">
+        <p class="cart-empty">Seu carrinho ainda está vazio.</p>
+        <ul class="cart-items" id="cart-items" aria-live="polite" aria-label="Itens no carrinho"></ul>
+
+        <fieldset class="payment-options" id="payment-options">
+          <legend>Forma de pagamento</legend>
+          <label><input type="radio" name="payment" value="Crédito"  disabled> Cartão de crédito</label>
+          <label><input type="radio" name="payment" value="Débito"   disabled> Cartão de débito</label>
+          <label><input type="radio" name="payment" value="PIX"      disabled> PIX</label>
+          <label><input type="radio" name="payment" value="Dinheiro" disabled> Dinheiro</label>
+        </fieldset>
+
+        <p class="payment-feedback" id="payment-feedback" aria-live="polite">Adicione itens para escolher a forma de pagamento.</p>
+      </div>
+
+      <footer class="cart-panel-footer">
+        <div class="cart-total">Total: <strong id="cart-total">R$ 0,00</strong></div>
+        <div class="cart-actions">
+          <button type="button" class="btn btn-small cart-clear" id="cart-clear" disabled>Limpar</button>
+          <button type="button" class="btn btn-small" id="checkout-btn" disabled>Finalizar pedido</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main id="conteudo">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title">🎸🍔 Rock'N Burguer</h1>
+        <p class="lead">O sabor no último volume 🔥</p>
+        <a class="btn" href="#cardapio">Ver cardápio</a>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="section" aria-labelledby="sobre-title">
+      <div class="container">
+        <h2 id="sobre-title">Quem Somos</h2>
+        <p>Na Rock'N Burguer, cada hambúrguer é um verdadeiro show de sabor! 🍔🔥 Inspirados pela energia do rock, unimos ingredientes selecionados, burgers artesanais e um ambiente cheio de atitude para criar uma experiência única. Aqui, boa música e comida incrível andam juntas. Rock'N Burguer — mais que uma hamburgueria, um palco de sabores!</p>
+      </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section id="cardapio" class="section section--alt" aria-labelledby="cardapio-title">
+      <div class="container">
+        <h2 id="cardapio-title">Cardápio</h2>
+        <ul class="cards" id="lista-itens" aria-live="polite" aria-label="Itens do cardápio">
+          <!-- Itens injetados via JS a partir de js/dados.js -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section" aria-labelledby="contato-title">
+      <div class="container">
+        <h2 id="contato-title">Fale com a Gente</h2>
+        <form class="form" novalidate aria-describedby="form-help">
+          <p id="form-help" class="muted">Os campos marcados com * são obrigatórios.</p>
+
+          <div class="field">
+            <label for="nome">Nome *</label>
+            <input id="nome" name="nome" type="text" required autocomplete="name" aria-required="true">
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail *</label>
+            <input id="email" name="email" type="email" required autocomplete="email" aria-required="true">
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn">Enviar</button>
+          <p id="form-status" role="status" aria-live="polite" class="form-status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© <span id="ano"></span> Rock'N Burguer. Projeto acadêmico — Curso de Web Design · Vocação.</p>
+      <p> Feito por Script Sisters</p>
+    </div>
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
